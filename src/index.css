@@ -1,0 +1,26 @@
+body {
+  /* margin: 50px; */
+  background-color: #e6c973;
+  /* background-color: white; */
+}
+
+#contributerName {
+  font-family: 'Raleway';
+  font-size: '24px';
+  color: '#AF985A';
+  font-weight: 'semibold';
+}
+
+/* CSS for collapsed footer */
+.collapsed-footer {
+  max-height: 50px; /* Adjust the height as needed */
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+
+/* CSS for expanded footer */
+.expanded-footer {
+  max-height: none; /* Removes the height restriction */
+  overflow: auto; /* Enable scrolling if content exceeds the card height */
+  transition: max-height 0.3s ease-in-out;
+}
