@@ -1,0 +1,13 @@
+const contentData = [
+    {
+      Title: 'Title 1',
+      Body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      Keywords: 'keyword1, keyword2, keyword3'
+    },
+    {
+      Title: 'Title 2',
+      Body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      Keywords: 'keyword4, keyword5, keyword6'
+    },
+    // Add more content objects as needed
+  ];

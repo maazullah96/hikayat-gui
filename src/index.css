@@ -1,13 +1,14 @@
 body {
   /* margin: 50px; */
-  background-color: #e6c973;
+  /* background-color: #e6c973; */
+
   /* background-color: white; */
 }
 
 #contributerName {
   font-family: 'Raleway';
   font-size: '24px';
-  color: '#AF985A';
+  /* color: #af985a; */
   font-weight: 'semibold';
 }
 
@@ -26,9 +27,78 @@ body {
 }
 .dropdown-content-right {
   margin: 20px 0px 0px;
-  padding-left: 25px;
+  padding-left: 40px;
   /* background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1; */
+}
+
+.icon-text-container {
+  display: flex;
+  align-items: center;
+}
+
+.icon-text {
+  margin-left: 30px; /* Adjust the margin as needed */
+}
+
+.icon-chevron {
+  margin-left: auto;
+}
+
+.slick-prev:before,
+.slick-next:before,
+.slick-next,
+.slick-prev {
+  color: #629c8a !important;
+  /* background: gray !important; */
+}
+
+.slick-prev {
+  left: 1% !important;
+  /* z-index: 1; */
+}
+.slick-next {
+  right: 1% !important;
+  /* z-index: 1; */
+}
+
+/* .scroll-container {
+  padding-right: 0.5em;
+  overflow: hidden;
+} */
+
+.offcanvas-body-scrollable {
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.offcanvas.offcanvas-start {
+  width: 300px; /* Set the desired width */
+}
+
+#Edge {
+  position: absolute;
+  right: 0px;
+  top: 40%;
+}
+
+.circular-button {
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none; /* Add this line to remove the border */
+  outline: none; /* Add this line to remove the outline */
+}
+
+.centered-stack {
+  justify-content: 'center';
+  align-items: 'center';
+  height: 100%;
+}
+
+.custom-card {
+  min-height: 500px; /* Set your desired min-height value */
 }
