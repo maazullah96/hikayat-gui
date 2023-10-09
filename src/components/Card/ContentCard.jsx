@@ -69,12 +69,13 @@ function ContentCard({ data }) {
             }}
           >
             <div className='centered-stack'>
-              <CircularButton
+              <FontAwesomeIcon
+                ref={target}
+                color={isLiked ? '#FF0000' : '#ffffff'}
                 icon={faHeart}
-                size={'2x'}
-                iconColor={isLiked ? '#FF0000' : '#ffffff'}
+                size='2x'
+                // onClick={handleClickPop}
                 onClick={handleClick}
-                color={isLiked ? '#fff' : '#A0AB96'}
               />
             </div>
 
