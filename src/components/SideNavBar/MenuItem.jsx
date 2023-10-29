@@ -15,6 +15,7 @@ function MenuItem({
     <ListGroup.Item onClick={onClick}>
       <div className='icon-text-container'>
         <FontAwesomeIcon icon={icon} />
+
         <span className='icon-text'>{text}</span>
 
         {showDropdown ? (

@@ -1,15 +1,15 @@
 import { Button, Stack, Card } from 'react-bootstrap'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
 import {
   faHandshake,
   faChevronDown,
   faChevronUp,
   faBookOpen,
   faList,
-  faTag
+  faTag,
+  faPen
 } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const iconStyle = {
   color: 'white'
@@ -19,22 +19,24 @@ const footerStyle = {
   backgroundColor: '#629C8A'
 }
 
+import FooterButton from './FooterButton'
 function Footer({
   showExtendedFooter,
   toggleExtendedFooter,
   showMoreContent,
-  data,
-  keywords
+  data
 }) {
+  const { category, book, author, keywords } = data
+
   const keywordsButtons = keywords.map((keyword, index) => (
-    <Button
+    <FooterButton
       key={index}
-      variant='secondary'
-      style={{ backgroundColor: 'rgba(0, 0, 0, 0.25)' }}
-    >
-      <FontAwesomeIcon icon={faTag} rotation={90} color='white' />{' '}
-      {'   ' + keyword}
-    </Button>
+      icon={faTag}
+      rotation={90}
+      color='white'
+      data={keyword}
+      type='keyword'
+    ></FooterButton>
   ))
 
   const footerContent = showExtendedFooter ? (
@@ -56,22 +58,23 @@ function Footer({
       </div>
       <Stack direction='horizontal' gap={2}>
         <>
-          <Button
-            variant='secondary'
-            style={{ backgroundColor: 'rgba(0, 0, 0, 0.25)' }}
-          >
-            <FontAwesomeIcon icon={faBookOpen} color='white' /> {data['Book']}
-          </Button>
+          <FooterButton
+            icon={faBookOpen}
+            data={book}
+            type='book'
+          ></FooterButton>
         </>
-
         <>
-          <Button
-            variant='secondary'
-            style={{ backgroundColor: 'rgba(0, 0, 0, 0.25)' }}
-          >
-            <FontAwesomeIcon icon={faList} color='white' />
-            {'  ' + data['Category']}
-          </Button>
+          <FooterButton icon={faPen} data={author} type='author'></FooterButton>
+        </>
+        <>
+          <FooterButton
+            icon={faList}
+            rotation={90}
+            color='white'
+            data={category}
+            type='category'
+          ></FooterButton>
         </>
         {keywordsButtons}
       </Stack>

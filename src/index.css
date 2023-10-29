@@ -1,7 +1,6 @@
 body {
   /* margin: 50px; */
   /* background-color: #e6c973; */
-
   /* background-color: white; */
 }
 
@@ -47,31 +46,25 @@ body {
   margin-left: auto;
 }
 
-.slick-prev:before,
-.slick-next:before,
-.slick-next,
-.slick-prev {
-  color: #629c8a !important;
-  /* background: gray !important; */
-}
-
-.slick-prev {
-  left: 1% !important;
-  /* z-index: 1; */
-}
-.slick-next {
-  right: 1% !important;
-  /* z-index: 1; */
-}
-
-/* .scroll-container {
-  padding-right: 0.5em;
-  overflow: hidden;
-} */
-
 .offcanvas-body-scrollable {
   max-height: 100%;
   overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #ebd8d8 #f5f5f5;
+}
+
+.offcanvas-body-scrollable::-webkit-scrollbar {
+  width: 8px;
+}
+
+.offcanvas-body-scrollable::-webkit-scrollbar-track {
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+.offcanvas-body-scrollable::-webkit-scrollbar-thumb {
+  background-color: #888888;
+  border-radius: 4px;
 }
 
 .offcanvas.offcanvas-start {
@@ -100,5 +93,50 @@ body {
 }
 
 .custom-card {
-  min-height: 500px; /* Set your desired min-height value */
+  min-height: '80vh';
+  /* Set your desired min-height value */
+}
+.slider-container {
+  position: relative;
+  border: 1px solid black;
+}
+
+.slick-arrow {
+  position: relative;
+  z-index: 1;
+}
+
+.slick-prev {
+  left: 1% !important;
+}
+
+.slick-next {
+  right: 1% !important;
+}
+.slick-arrow .slick-prev .slick-next,
+.slick-prev:before,
+.slick-next:before {
+  color: #629c8a !important;
+}
+/* 
+.slick-arrow .slick-prev .slick-next,
+.slick-prev:before,
+.slick-next:before {
+  color: #629c8a !important;
+}
+
+.slick-arrow:before {
+  color: #629c8a !important;
+}
+.slick-prev {
+  z-index: 9998;
+  left: 1% !important;
+}
+.slick-next {
+  z-index: 9998;
+  right: 1% !important;
+} */
+
+.offcanvas-custom {
+  z-index: 9999;
 }

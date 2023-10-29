@@ -9,26 +9,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 
+import DropdownMenu from './DropDownMenu'
 import hikayatImage from '../../assets/hikayat-03.png'
-
-function DropdownMenu({ items, basePath }) {
-  return (
-    <div className='dropdown-content-right'>
-      {items.map((item, index) => (
-        <Link
-          to={`${basePath}/${index}`}
-          key={index}
-          className='dropdown-item pb-2'
-        >
-          {item}
-        </Link>
-      ))}
-      <Link to={`${basePath}`} key={-1} className='dropdown-item pb-2'>
-        {`More ${basePath.charAt(0).toUpperCase() + basePath.slice(1)}...`}
-      </Link>
-    </div>
-  )
-}
 
 function OffCanvasMenu({
   show,
@@ -38,10 +20,13 @@ function OffCanvasMenu({
   books,
   showCategoriesDropdown,
   showKeywordsDropdown,
+  showCollectionsDropdown,
   toggleCategoriesDropdown,
   toggleKeywordsDropdown,
+  toggleCollectionsDropdown,
   categories,
-  keywords
+  keywords,
+  collections
 }) {
   return (
     <Offcanvas
@@ -64,8 +49,9 @@ function OffCanvasMenu({
             text='Books'
             showDropdown={showBooksDropdown}
             toggleDropdown={toggleBooksDropdown}
+            basePath='books'
           >
-            <DropdownMenu items={books} basePath='book' />
+            <DropdownMenu items={books} basePath='books' />
           </MenuItem>
 
           <MenuItem
@@ -88,6 +74,16 @@ function OffCanvasMenu({
             toggleDropdown={toggleKeywordsDropdown}
           >
             <DropdownMenu items={keywords} basePath='keywords' />
+          </MenuItem>
+
+          <MenuItem
+            onClick={toggleCollectionsDropdown}
+            icon={faTag}
+            text='Collections'
+            showDropdown={showCollectionsDropdown}
+            toggleDropdown={toggleCollectionsDropdown}
+          >
+            <DropdownMenu items={collections} basePath='collections' />
           </MenuItem>
 
           <hr />

@@ -14,6 +14,7 @@ function NavBar() {
   const [showBooksDropdown, setShowBooksDropdown] = useState(false)
   const [showCategoriesDropdown, setShowCategoriesDropdown] = useState(false)
   const [showKeywordsDropdown, setShowKeywordsDropdown] = useState(false)
+  const [showCollectionsDropdown, setShowCollectionsDropdown] = useState(false)
 
   const toggleShow = () => setShow((s) => !s)
   const toggleTheme = () => setTheme((t) => (t === 'light' ? 'dark' : 'light'))
@@ -21,23 +22,34 @@ function NavBar() {
   const toggleBooksDropdown = () => {
     setShowBooksDropdown(!showBooksDropdown)
     setShowCategoriesDropdown(false)
+    // setShowCollectionsDropdown(false)
+    // setShowKeywordsDropdown(false)
   }
 
   const toggleCategoriesDropdown = () => {
     setShowCategoriesDropdown(!showCategoriesDropdown)
     setShowBooksDropdown(false)
+    // setShowCollectionsDropdown(false)
+    // setShowKeywordsDropdown(false)
   }
 
   const toggleKeywordsDropdown = () => {
     setShowKeywordsDropdown(!showKeywordsDropdown)
-    setShowCategoriesDropdown(false)
-    setShowBooksDropdown(false)
+    // setShowCategoriesDropdown(false)
+    // setShowBooksDropdown(false)
+    setShowCollectionsDropdown(false)
+  }
+  const toggleCollectionsDropdown = () => {
+    setShowCollectionsDropdown(!showCollectionsDropdown)
+    // setShowCategoriesDropdown(false)
+    // setShowBooksDropdown(false)
+    setShowKeywordsDropdown(false)
   }
 
   const books = ['Maktub', 'AlChemist', 'Rich Dad Poor Dad']
   const categories = ['Pyar', 'Crime', 'THriller', 'Dead End']
   const keywords = ['Chemist', 'Pot', 'Pharmist', 'Danger']
-
+  const collections = ['Liked', 'Deads']
   return (
     <>
       {/* Use the OffCanvasMenu component here */}
@@ -49,10 +61,13 @@ function NavBar() {
         books={books}
         showCategoriesDropdown={showCategoriesDropdown}
         showKeywordsDropdown={showKeywordsDropdown}
+        showCollectionsDropdown={showCollectionsDropdown}
         toggleCategoriesDropdown={toggleCategoriesDropdown}
         toggleKeywordsDropdown={toggleKeywordsDropdown}
+        toggleCollectionsDropdown={toggleCollectionsDropdown}
         categories={categories}
         keywords={keywords}
+        collections={collections}
       />
 
       <Navbar className='mt-2' style={{ border: '1px solid black' }}>
