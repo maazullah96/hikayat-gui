@@ -14,6 +14,7 @@ import Home from './components/Home.jsx'
 import Authors from './components/Authors.jsx'
 import { DataProvider } from './context/DataContext'
 import React, { lazy, Suspense } from 'react'
+import { StyleProvider } from './context/StyleContext'
 const Books = lazy(() => import('./components/Books'))
 
 const router = createBrowserRouter(
@@ -29,9 +30,11 @@ const router = createBrowserRouter(
 
 const App = () => {
   return (
-    <DataProvider>
-      <RouterProvider router={router} />
-    </DataProvider>
+    <StyleProvider>
+      <DataProvider>
+        <RouterProvider router={router} />
+      </DataProvider>
+    </StyleProvider>
   )
 }
 export default App

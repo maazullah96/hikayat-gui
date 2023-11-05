@@ -1,6 +1,7 @@
 import { Card, Button } from 'react-bootstrap'
 import Footer from './Footer'
 import { useState } from 'react'
+import { useStyleContext, StyleContext } from '../../context/StyleContext'
 
 function ContentCard({ data }) {
   const [showExtendedFooter, setShowExtendedFooter] = useState(false)
@@ -11,6 +12,11 @@ function ContentCard({ data }) {
   const toggleExtendedFooter = () => {
     setShowExtendedFooter(!showExtendedFooter)
   }
+
+  const { styleState, dispatch } = useStyleContext()
+
+  // Retrieve the selectedFont from styleState
+  const { selectedFont, selectedFontSize } = styleState
 
   const toggleCardText = () => {
     setShowMoreContent(!showMoreContent)
@@ -26,9 +32,15 @@ function ContentCard({ data }) {
       style={containerStyle}
     >
       <Card className='text-center custom-card' style={cardStyle}>
-        <Card.Title className='mt-3'>{upperCaseFirst(name)}</Card.Title>
+        <Card.Title className='mt-3'>{upperCaseFirst(name.trim())}</Card.Title>
         <Card.Body>
-          <Card.Text className='p-3'>
+          <Card.Text
+            className='p-3'
+            style={{
+              fontSize: `${selectedFontSize}px`,
+              fontFamily: selectedFont.label
+            }}
+          >
             <div>
               {showMoreContent ? body : body.substring(0, maxTextLength)}
             </div>
@@ -54,8 +66,8 @@ const containerStyle = {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  height: '80vh',
-  minHeight: '80vh', // Use minHeight to ensure a minimum height for the container
+  height: '70vh',
+  minHeight: '50vh', // Use minHeight to ensure a minimum height for the container
   maxHeight: '80vh'
 }
 
